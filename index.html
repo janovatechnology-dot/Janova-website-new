@@ -1,0 +1,2420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JANOVA TECHNOLOGY | Digital Solutions</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#050511;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+button,input,textarea,select{
+    font-family:inherit;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* ================= BACKGROUND ================= */
+
+body:before{
+    content:"";
+    position:fixed;
+    width:700px;
+    height:700px;
+    left:-300px;
+    top:100px;
+    border-radius:50%;
+    background:radial-gradient(circle,
+        rgba(124,60,255,.28),
+        transparent 65%);
+    filter:blur(40px);
+    z-index:-2;
+}
+
+body:after{
+    content:"";
+    position:fixed;
+    width:700px;
+    height:700px;
+    right:-300px;
+    bottom:0;
+    border-radius:50%;
+    background:radial-gradient(circle,
+        rgba(0,210,255,.20),
+        transparent 65%);
+    filter:blur(50px);
+    z-index:-2;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    position:fixed;
+    top:15px;
+    left:50%;
+    transform:translateX(-50%);
+    width:92%;
+    max-width:1250px;
+    height:70px;
+    padding:0 22px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    background:rgba(10,10,30,.72);
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:22px;
+
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:18px;
+    font-weight:900;
+    letter-spacing:1.5px;
+}
+
+.logo-icon{
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:13px;
+
+    background:linear-gradient(135deg,#7c3cff,#00d9ff);
+
+    box-shadow:0 0 30px rgba(124,60,255,.5);
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#999bb5;
+    font-size:13px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.login-btn{
+    border:none;
+    padding:12px 20px;
+    border-radius:12px;
+
+    color:white;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    background:linear-gradient(135deg,#7c3cff,#00cfff);
+
+    box-shadow:0 10px 30px rgba(90,60,255,.3);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    padding:150px 7% 80px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:50px;
+}
+
+.hero-content{
+    width:52%;
+}
+
+.tag{
+    display:inline-block;
+    padding:10px 16px;
+
+    border-radius:30px;
+
+    background:rgba(124,60,255,.10);
+    border:1px solid rgba(124,60,255,.35);
+
+    color:#bdaaff;
+
+    font-size:11px;
+    letter-spacing:1px;
+
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:clamp(48px,6vw,82px);
+    line-height:.98;
+    letter-spacing:-4px;
+}
+
+.gradient{
+    background:linear-gradient(
+        90deg,
+        #9d6cff,
+        #00dcff,
+        #ff55d8
+    );
+
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    max-width:620px;
+    margin-top:25px;
+
+    color:#9295b1;
+    line-height:1.8;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    margin-top:35px;
+}
+
+.primary{
+    border:none;
+    padding:15px 23px;
+
+    border-radius:14px;
+
+    color:white;
+    font-weight:bold;
+
+    background:linear-gradient(135deg,#793cff,#00d5ff);
+
+    cursor:pointer;
+
+    box-shadow:0 15px 40px rgba(90,60,255,.3);
+
+    transition:.3s;
+}
+
+.primary:hover{
+    transform:translateY(-5px);
+}
+
+.secondary{
+    padding:15px 23px;
+
+    border-radius:14px;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    background:rgba(255,255,255,.04);
+
+    color:#bbbdd0;
+
+    cursor:pointer;
+}
+
+/* ================= 3D HERO ================= */
+
+.hero-visual{
+    width:45%;
+    height:520px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    position:relative;
+
+    perspective:1200px;
+}
+
+.hero-glow{
+    position:absolute;
+
+    width:380px;
+    height:380px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        circle,
+        rgba(123,60,255,.65),
+        transparent 70%
+    );
+
+    filter:blur(30px);
+}
+
+.cube{
+    width:220px;
+    height:220px;
+
+    position:relative;
+
+    transform-style:preserve-3d;
+
+    animation:rotateCube 12s linear infinite;
+
+    z-index:3;
+}
+
+.face{
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+
+    border:1px solid rgba(255,255,255,.25);
+
+    background:rgba(70,45,150,.18);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:inset 0 0 40px rgba(255,255,255,.07);
+}
+
+.face-icon{
+    font-size:48px;
+    margin-bottom:14px;
+}
+
+.face h3{
+    letter-spacing:2px;
+    font-size:16px;
+}
+
+.front{
+    transform:translateZ(110px);
+}
+
+.back{
+    transform:rotateY(180deg) translateZ(110px);
+}
+
+.right{
+    transform:rotateY(90deg) translateZ(110px);
+}
+
+.left{
+    transform:rotateY(-90deg) translateZ(110px);
+}
+
+.top{
+    transform:rotateX(90deg) translateZ(110px);
+}
+
+.bottom{
+    transform:rotateX(-90deg) translateZ(110px);
+}
+
+@keyframes rotateCube{
+    from{
+        transform:rotateX(-10deg) rotateY(0deg);
+    }
+
+    to{
+        transform:rotateX(-10deg) rotateY(360deg);
+    }
+}
+
+/* FLOATING CARDS */
+
+.float{
+    position:absolute;
+
+    padding:15px 18px;
+
+    border-radius:16px;
+
+    background:rgba(12,13,35,.78);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    box-shadow:0 20px 50px rgba(0,0,0,.4);
+
+    z-index:5;
+
+    animation:float 4s ease-in-out infinite;
+}
+
+.float strong{
+    display:block;
+    margin-top:5px;
+}
+
+.float small{
+    color:#777a96;
+}
+
+.f1{
+    left:0;
+    top:80px;
+}
+
+.f2{
+    right:0;
+    top:180px;
+    animation-delay:1s;
+}
+
+.f3{
+    left:50px;
+    bottom:70px;
+    animation-delay:2s;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-18px);
+    }
+}
+
+/* ================= SECTION ================= */
+
+.section{
+    padding:120px 7%;
+}
+
+.heading{
+    text-align:center;
+    max-width:750px;
+    margin:0 auto 65px;
+}
+
+.heading span{
+    color:#9a7aff;
+    font-size:11px;
+    letter-spacing:3px;
+    font-weight:bold;
+}
+
+.heading h2{
+    font-size:48px;
+    margin:15px 0;
+}
+
+.heading p{
+    color:#8588a4;
+    line-height:1.8;
+}
+
+/* ================= SERVICES ================= */
+
+.services{
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.service{
+    padding:30px;
+    min-height:350px;
+
+    border-radius:25px;
+
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.02)
+    );
+
+    border:1px solid rgba(255,255,255,.09);
+
+    transition:.4s;
+
+    transform-style:preserve-3d;
+}
+
+.service:hover{
+    transform:
+        perspective(900px)
+        rotateX(5deg)
+        rotateY(-5deg)
+        translateY(-12px);
+
+    border-color:rgba(130,90,255,.5);
+
+    box-shadow:0 30px 70px rgba(0,0,0,.4);
+}
+
+.icon{
+    width:70px;
+    height:70px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:20px;
+
+    font-size:32px;
+
+    background:rgba(124,60,255,.12);
+
+    margin-bottom:25px;
+}
+
+.service h3{
+    font-size:20px;
+    margin-bottom:15px;
+}
+
+.service p{
+    color:#83869f;
+    font-size:14px;
+    line-height:1.8;
+}
+
+.service-buttons{
+    display:flex;
+    gap:8px;
+    margin-top:25px;
+}
+
+.demo-btn,
+.enquiry-btn{
+    padding:10px 13px;
+    border-radius:10px;
+    font-size:12px;
+    cursor:pointer;
+}
+
+.demo-btn{
+    background:rgba(124,60,255,.15);
+    border:1px solid rgba(124,60,255,.35);
+    color:#b19cff;
+}
+
+.enquiry-btn{
+    background:linear-gradient(135deg,#793cff,#00bfff);
+    border:none;
+    color:white;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+    padding:120px 7%;
+
+    background:radial-gradient(
+        circle at 50% 50%,
+        rgba(90,55,210,.15),
+        transparent 60%
+    );
+}
+
+.contact-box{
+    max-width:1100px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    gap:60px;
+
+    align-items:center;
+}
+
+.contact-info h2{
+    font-size:48px;
+    line-height:1.1;
+    margin:15px 0;
+}
+
+.contact-info p{
+    color:#8588a4;
+    line-height:1.8;
+}
+
+.contact-points{
+    margin-top:30px;
+}
+
+.point{
+    display:flex;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.point-icon{
+    width:45px;
+    height:45px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:13px;
+
+    background:rgba(124,60,255,.15);
+}
+
+.point small{
+    display:block;
+    color:#6f728d;
+    margin-top:4px;
+}
+
+/* ================= FORM ================= */
+
+.form{
+    padding:30px;
+
+    border-radius:25px;
+
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.02)
+    );
+
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.form h3{
+    margin-bottom:20px;
+    font-size:23px;
+}
+
+.form input,
+.form select,
+.form textarea{
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:13px;
+
+    border-radius:11px;
+
+    border:1px solid #292b45;
+
+    background:#0b0c20;
+
+    color:white;
+
+    outline:none;
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus{
+    border-color:#7c3cff;
+}
+
+.form button{
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:11px;
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    background:linear-gradient(
+        135deg,
+        #793cff,
+        #00d5ff
+    );
+}
+
+.success{
+    display:none;
+
+    margin-top:15px;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    background:rgba(50,220,150,.1);
+
+    color:#62e3a5;
+
+    font-size:13px;
+}
+
+/* ================= LOGIN MODAL ================= */
+
+.login-modal,
+.demo-modal{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.78);
+
+    backdrop-filter:blur(18px);
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    z-index:3000;
+}
+
+.login-modal.active,
+.demo-modal.active{
+    display:flex;
+}
+
+/* 3D LOGIN */
+
+.login-scene{
+    width:420px;
+    max-width:95vw;
+
+    perspective:1400px;
+}
+
+.login-card{
+    position:relative;
+
+    padding:42px 35px;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(35,30,75,.95),
+            rgba(8,9,28,.97)
+        );
+
+    border:1px solid rgba(255,255,255,.18);
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.7),
+        inset 0 0 60px rgba(124,60,255,.08);
+
+    transform-style:preserve-3d;
+
+    animation:loginFloat 5s ease-in-out infinite;
+}
+
+@keyframes loginFloat{
+    0%,100%{
+        transform:rotateX(0deg) rotateY(0deg) translateY(0);
+    }
+
+    50%{
+        transform:rotateX(3deg) rotateY(-3deg) translateY(-10px);
+    }
+}
+
+.login-orb{
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        circle,
+        rgba(0,220,255,.35),
+        transparent 70%
+    );
+
+    filter:blur(20px);
+
+    top:-70px;
+    right:-50px;
+}
+
+.login-logo{
+    width:75px;
+    height:75px;
+
+    margin:0 auto 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:22px;
+
+    font-size:30px;
+    font-weight:900;
+
+    background:linear-gradient(
+        135deg,
+        #793cff,
+        #00d9ff
+    );
+
+    box-shadow:
+        0 0 40px rgba(124,60,255,.5);
+
+    transform:translateZ(40px);
+}
+
+.login-card h2{
+    text-align:center;
+    font-size:27px;
+}
+
+.login-card > p{
+    text-align:center;
+    color:#777a96;
+    font-size:13px;
+    margin:10px 0 28px;
+}
+
+.login-field{
+    margin-bottom:16px;
+}
+
+.login-field label{
+    display:block;
+    color:#a8aac1;
+    font-size:12px;
+    margin-bottom:8px;
+}
+
+.login-field input{
+    width:100%;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    background:rgba(0,0,0,.25);
+
+    color:white;
+
+    outline:none;
+}
+
+.login-field input:focus{
+    border-color:#7c3cff;
+    box-shadow:0 0 20px rgba(124,60,255,.15);
+}
+
+.login-submit{
+    width:100%;
+
+    padding:15px;
+
+    margin-top:5px;
+
+    border:none;
+
+    border-radius:13px;
+
+    background:linear-gradient(
+        135deg,
+        #793cff,
+        #00d5ff
+    );
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.login-submit:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(90,60,255,.35);
+}
+
+.login-note{
+    text-align:center;
+    margin-top:18px;
+
+    font-size:11px;
+    color:#60637d;
+}
+
+.close-modal{
+    position:absolute;
+
+    top:15px;
+    right:15px;
+
+    width:35px;
+    height:35px;
+
+    border-radius:10px;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    background:rgba(255,255,255,.05);
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+}
+
+/* ================= DEMO ================= */
+
+.demo-box{
+    width:900px;
+    max-width:95vw;
+    max-height:90vh;
+    overflow:auto;
+
+    border-radius:28px;
+
+    background:linear-gradient(
+        145deg,
+        #171832,
+        #0b0c20
+    );
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:0 40px 120px rgba(0,0,0,.6);
+}
+
+.demo-header{
+    padding:22px 25px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.demo-content{
+    padding:30px;
+}
+
+.demo-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.demo-stat{
+    padding:20px;
+    border-radius:17px;
+    background:rgba(255,255,255,.05);
+}
+
+.demo-stat span{
+    color:#777a96;
+    font-size:11px;
+}
+
+.demo-stat h2{
+    margin-top:8px;
+}
+
+.demo-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+.demo-table th,
+.demo-table td{
+    text-align:left;
+    padding:15px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+    font-size:13px;
+}
+
+.demo-table th{
+    color:#8588a4;
+}
+
+.status{
+    padding:6px 10px;
+    border-radius:20px;
+    background:rgba(65,220,150,.12);
+    color:#55dfa0;
+    font-size:11px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:60px 7% 30px;
+
+    text-align:center;
+
+    border-top:1px solid rgba(255,255,255,.07);
+}
+
+.footer-logo{
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:3px;
+}
+
+footer p{
+    margin-top:15px;
+    color:#686b85;
+    font-size:13px;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin:25px 0;
+}
+
+.footer-links a{
+    color:#80839a;
+    font-size:13px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero-content,
+    .hero-visual{
+        width:100%;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .services{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .contact-box{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .navbar{
+        width:94%;
+    }
+
+    .login-btn{
+        padding:10px 14px;
+        font-size:11px;
+    }
+
+    .hero{
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .hero-visual{
+        height:450px;
+        transform:scale(.8);
+    }
+
+    .services{
+        grid-template-columns:1fr;
+    }
+
+    .heading h2,
+    .contact-info h2{
+        font-size:35px;
+    }
+
+    .demo-stats{
+        grid-template-columns:1fr;
+    }
+
+    .service-buttons{
+        flex-wrap:wrap;
+    }
+
+    .login-card{
+        padding:35px 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            J
+        </div>
+
+        JANOVA TECHNOLOGY
+
+    </div>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="#home">Home</a>
+        </li>
+
+        <li>
+            <a href="#services">Services</a>
+        </li>
+
+        <li>
+            <a href="#contact">Enquiry</a>
+        </li>
+
+        <li>
+            <a href="mailto:Janovatechnology@gmail.com">
+                Email
+            </a>
+        </li>
+
+    </ul>
+
+    <button
+        class="login-btn"
+        onclick="openLogin()">
+
+        🔐 Client Login
+
+    </button>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="tag">
+            ✦ SMART DIGITAL SOLUTIONS FOR YOUR BUSINESS
+        </div>
+
+        <h1>
+
+            Grow Your
+
+            <br>
+
+            Business With
+
+            <br>
+
+            <span class="gradient">
+                JANOVA TECHNOLOGY
+            </span>
+
+        </h1>
+
+        <p>
+
+            Professional billing software,
+            attendance applications,
+            business websites and custom
+            software solutions designed for
+            modern businesses.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="#services"
+                class="primary">
+
+                Explore Solutions →
+
+            </a>
+
+            <button
+                class="secondary"
+                onclick="openLogin()">
+
+                Client Login
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-visual">
+
+        <div class="hero-glow"></div>
+
+        <div class="cube">
+
+            <div class="face front">
+
+                <div class="face-icon">
+                    🚀
+                </div>
+
+                <h3>
+                    JANOVA
+                </h3>
+
+            </div>
+
+            <div class="face back">
+
+                <div class="face-icon">
+                    💳
+                </div>
+
+                <h3>
+                    BILLING
+                </h3>
+
+            </div>
+
+            <div class="face right">
+
+                <div class="face-icon">
+                    👥
+                </div>
+
+                <h3>
+                    ATTENDANCE
+                </h3>
+
+            </div>
+
+            <div class="face left">
+
+                <div class="face-icon">
+                    🌐
+                </div>
+
+                <h3>
+                    WEBSITE
+                </h3>
+
+            </div>
+
+            <div class="face top">
+
+                <div class="face-icon">
+                    ☁️
+                </div>
+
+                <h3>
+                    CLOUD
+                </h3>
+
+            </div>
+
+            <div class="face bottom">
+
+                <div class="face-icon">
+                    📊
+                </div>
+
+                <h3>
+                    ANALYTICS
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="float f1">
+
+            💳 Billing
+
+            <strong>
+                ₹85,420
+            </strong>
+
+            <small>
+                Today's Sales
+            </small>
+
+        </div>
+
+
+        <div class="float f2">
+
+            👥 Attendance
+
+            <strong>
+                96.8%
+            </strong>
+
+            <small>
+                Present Today
+            </small>
+
+        </div>
+
+
+        <div class="float f3">
+
+            🌐 Website
+
+            <strong>
+                LIVE
+            </strong>
+
+            <small>
+                Business Website
+            </small>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section class="section" id="services">
+
+    <div class="heading">
+
+        <span>
+            WHAT WE BUILD
+        </span>
+
+        <h2>
+
+            Digital Solutions
+
+            <br>
+
+            For Your
+
+            <span class="gradient">
+                Business
+            </span>
+
+        </h2>
+
+        <p>
+
+            Explore our solutions, view a live
+            sample experience and send an enquiry.
+
+        </p>
+
+    </div>
+
+
+    <div class="services">
+
+
+        <div class="service">
+
+            <div class="icon">
+                💳
+            </div>
+
+            <h3>
+                Billing Software
+            </h3>
+
+            <p>
+
+                Smart billing software for shops,
+                retailers and businesses with
+                invoices, customers, products
+                and reports.
+
+            </p>
+
+            <div class="service-buttons">
+
+                <button
+                    class="demo-btn"
+                    onclick="openDemo('billing')">
+
+                    👁 View Demo
+
+                </button>
+
+                <button
+                    class="enquiry-btn"
+                    onclick="openEnquiry('Billing Software')">
+
+                    Enquire →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="icon">
+                👥
+            </div>
+
+            <h3>
+                Attendance App
+            </h3>
+
+            <p>
+
+                Easy attendance management
+                for companies, organizations,
+                schools and institutions.
+
+            </p>
+
+            <div class="service-buttons">
+
+                <button
+                    class="demo-btn"
+                    onclick="openDemo('attendance')">
+
+                    👁 View Demo
+
+                </button>
+
+                <button
+                    class="enquiry-btn"
+                    onclick="openEnquiry('Attendance App')">
+
+                    Enquire →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="icon">
+                🌐
+            </div>
+
+            <h3>
+                Business Websites
+            </h3>
+
+            <p>
+
+                Modern responsive websites
+                for shops, companies,
+                startups and organizations.
+
+            </p>
+
+            <div class="service-buttons">
+
+                <button
+                    class="demo-btn"
+                    onclick="openDemo('website')">
+
+                    👁 View Demo
+
+                </button>
+
+                <button
+                    class="enquiry-btn"
+                    onclick="openEnquiry('Website Development')">
+
+                    Enquire →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="icon">
+                ⚙️
+            </div>
+
+            <h3>
+                Custom Software
+            </h3>
+
+            <p>
+
+                Unique business requirement?
+                We design and develop software
+                around your workflow.
+
+            </p>
+
+            <div class="service-buttons">
+
+                <button
+                    class="demo-btn"
+                    onclick="openDemo('custom')">
+
+                    👁 View Demo
+
+                </button>
+
+                <button
+                    class="enquiry-btn"
+                    onclick="openEnquiry('Custom Software')">
+
+                    Enquire →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact" id="contact">
+
+    <div class="contact-box">
+
+        <div class="contact-info">
+
+            <span>
+                CONTACT JANOVA TECHNOLOGY
+            </span>
+
+            <h2>
+
+                Let's Build Your
+
+                <br>
+
+                <span class="gradient">
+                    Digital Future.
+                </span>
+
+            </h2>
+
+            <p>
+
+                Have a business idea or need
+                software for your company?
+                Send us your requirement.
+
+            </p>
+
+
+            <div class="contact-points">
+
+                <div class="point">
+
+                    <div class="point-icon">
+                        📧
+                    </div>
+
+                    <div>
+
+                        Email
+
+                        <small>
+                            Janovatechnology@gmail.com
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="point">
+
+                    <div class="point-icon">
+                        📞
+                    </div>
+
+                    <div>
+
+                        Phone
+
+                        <small>
+                            8270416714
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="point">
+
+                    <div class="point-icon">
+                        💻
+                    </div>
+
+                    <div>
+
+                        Services
+
+                        <small>
+                            Billing • Attendance • Websites • Software
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <form
+            class="form"
+            id="enquiryForm">
+
+            <h3>
+                🚀 Client Enquiry
+            </h3>
+
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Your Name"
+                required
+            >
+
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="Phone Number"
+                required
+            >
+
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Email Address"
+                required
+            >
+
+
+            <select
+                id="serviceSelect"
+                required>
+
+                <option value="">
+                    Select Service
+                </option>
+
+                <option>
+                    Billing Software
+                </option>
+
+                <option>
+                    Attendance App
+                </option>
+
+                <option>
+                    Website Development
+                </option>
+
+                <option>
+                    Custom Software
+                </option>
+
+            </select>
+
+
+            <textarea
+                id="message"
+                rows="5"
+                placeholder="Tell us about your requirement..."
+                required></textarea>
+
+
+            <button type="submit">
+
+                Send Enquiry 🚀
+
+            </button>
+
+
+            <div
+                class="success"
+                id="successMessage">
+
+                ✓ Enquiry form submitted successfully.
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        JANOVA TECHNOLOGY
+    </div>
+
+    <p>
+        Smart Digital Solutions For Modern Business.
+    </p>
+
+    <div class="footer-links">
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#services">
+            Services
+        </a>
+
+        <a href="#contact">
+            Enquiry
+        </a>
+
+        <a href="mailto:Janovatechnology@gmail.com">
+            Email
+        </a>
+
+        <a href="tel:8270416714">
+            Call
+        </a>
+
+    </div>
+
+    <p>
+        © 2026 JANOVA TECHNOLOGY. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<!-- ================= LOGIN MODAL ================= -->
+
+<div
+    class="login-modal"
+    id="loginModal">
+
+    <div class="login-scene">
+
+        <div class="login-card">
+
+            <div class="login-orb"></div>
+
+            <button
+                class="close-modal"
+                onclick="closeLogin()">
+
+                ×
+
+            </button>
+
+
+            <div class="login-logo">
+                J
+            </div>
+
+
+            <h2>
+                Client Login
+            </h2>
+
+            <p>
+                Welcome to JANOVA TECHNOLOGY
+            </p>
+
+
+            <form
+                id="loginForm">
+
+                <div class="login-field">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="login-field">
+
+                    <label>
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        placeholder="Enter password"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    class="login-submit"
+                    type="submit">
+
+                    Login to Dashboard →
+
+                </button>
+
+            </form>
+
+
+            <div class="login-note">
+
+                Client portal powered by
+                JANOVA TECHNOLOGY
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= DEMO MODAL ================= -->
+
+<div
+    class="demo-modal"
+    id="demoModal">
+
+    <div class="demo-box">
+
+        <div class="demo-header">
+
+            <h3 id="demoTitle">
+                Product Demo
+            </h3>
+
+            <button
+                class="close-modal"
+                onclick="closeDemo()">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="demo-content"
+            id="demoContent">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ================= LOGIN ================= */
+
+function openLogin(){
+
+    document
+        .getElementById("loginModal")
+        .classList.add("active");
+
+}
+
+function closeLogin(){
+
+    document
+        .getElementById("loginModal")
+        .classList.remove("active");
+
+}
+
+
+document
+.getElementById("loginForm")
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    alert(
+        "Client login system ready. Connect Firebase authentication for real login."
+    );
+
+});
+
+
+/* ================= ENQUIRY ================= */
+
+function openEnquiry(service){
+
+    document
+        .getElementById("serviceSelect")
+        .value = service;
+
+    document
+        .getElementById("contact")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+/* ================= DEMO ================= */
+
+function openDemo(type){
+
+    const modal =
+        document.getElementById("demoModal");
+
+    const title =
+        document.getElementById("demoTitle");
+
+    const content =
+        document.getElementById("demoContent");
+
+    modal.classList.add("active");
+
+
+    if(type === "billing"){
+
+        title.innerHTML =
+            "💳 JANOVA Billing Software Demo";
+
+        content.innerHTML = `
+
+            <div class="demo-stats">
+
+                <div class="demo-stat">
+                    <span>TODAY'S SALES</span>
+                    <h2>₹85,420</h2>
+                </div>
+
+                <div class="demo-stat">
+                    <span>INVOICES</span>
+                    <h2>128</h2>
+                </div>
+
+                <div class="demo-stat">
+                    <span>CUSTOMERS</span>
+                    <h2>542</h2>
+                </div>
+
+            </div>
+
+            <h3>Recent Invoices</h3>
+
+            <table class="demo-table">
+
+                <tr>
+                    <th>Invoice</th>
+                    <th>Customer</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                </tr>
+
+                <tr>
+                    <td>INV-1024</td>
+                    <td>Kumar Stores</td>
+                    <td>₹12,450</td>
+                    <td>
+                        <span class="status">
+                            Paid
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>INV-1023</td>
+                    <td>Sri Traders</td>
+                    <td>₹8,250</td>
+                    <td>
+                        <span class="status">
+                            Paid
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>INV-1022</td>
+                    <td>ABC Mart</td>
+                    <td>₹5,850</td>
+                    <td>
+                        <span class="status">
+                            Paid
+                        </span>
+                    </td>
+                </tr>
+
+            </table>
+
+            <br>
+
+            <button
+                class="primary"
+                onclick="
+                    closeDemo();
+                    openEnquiry('Billing Software')
+                ">
+
+                🚀 I Want This Software
+
+            </button>
+
+        `;
+
+    }
+
+
+    if(type === "attendance"){
+
+        title.innerHTML =
+            "👥 JANOVA Attendance App Demo";
+
+        content.innerHTML = `
+
+            <div class="demo-stats">
+
+                <div class="demo-stat">
+                    <span>TOTAL STAFF</span>
+                    <h2>120</h2>
+                </div>
+
+                <div class="demo-stat">
+                    <span>PRESENT</span>
+                    <h2>116</h2>
+                </div>
+
+                <div class="demo-stat">
+                    <span>ATTENDANCE</span>
+                    <h2>96.8%</h2>
+                </div>
+
+            </div>
+
+            <h3>
+                Today's Attendance
+            </h3>
+
+            <table class="demo-table">
+
+                <tr>
+                    <th>Employee</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                </tr>
+
+                <tr>
+                    <td>Arun Kumar</td>
+                    <td>08:52 AM</td>
+                    <td>
+                        <span class="status">
+                            Present
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Priya S</td>
+                    <td>09:01 AM</td>
+                    <td>
+                        <span class="status">
+                            Present
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Rahul M</td>
+                    <td>--</td>
+                    <td>
+                        Absent
+                    </td>
+                </tr>
+
+            </table>
+
+            <br>
+
+            <button
+                class="primary"
+                onclick="
+                    closeDemo();
+                    openEnquiry('Attendance App')
+                ">
+
+                🚀 I Want This App
+
+            </button>
+
+        `;
+
+    }
+
+
+    if(type === "website"){
+
+        title.innerHTML =
+            "🌐 JANOVA Business Website Demo";
+
+        content.innerHTML = `
+
+            <div style="
+                background:white;
+                color:#222;
+                border-radius:20px;
+                overflow:hidden;
+            ">
+
+                <div style="
+                    padding:18px;
+                    display:flex;
+                    justify-content:space-between;
+                    background:#f3f3f7;
+                ">
+
+                    <strong>
+                        YOUR BUSINESS
+                    </strong>
+
+                    <span>
+                        Home &nbsp; Products &nbsp; Contact
+                    </span>
+
+                </div>
+
+                <div style="
+                    padding:55px 35px;
+                    background:linear-gradient(
+                        135deg,
+                        #6c3cff,
+                        #00cfff
+                    );
+                    color:white;
+                ">
+
+                    <h1>
+                        Grow Your Business Online
+                    </h1>
+
+                    <p style="margin-top:12px">
+                        Modern website designed
+                        for your business.
+                    </p>
+
+                </div>
+
+                <div style="
+                    padding:25px;
+                    display:grid;
+                    grid-template-columns:repeat(3,1fr);
+                    gap:15px;
+                ">
+
+                    <div style="
+                        padding:25px;
+                        background:#f3f3f7;
+                        border-radius:15px;
+                        text-align:center;
+                    ">
+                        🛍️ Products
+                    </div>
+
+                    <div style="
+                        padding:25px;
+                        background:#f3f3f7;
+                        border-radius:15px;
+                        text-align:center;
+                    ">
+                        ⭐ Reviews
+                    </div>
+
+                    <div style="
+                        padding:25px;
+                        background:#f3f3f7;
+                        border-radius:15px;
+                        text-align:center;
+                    ">
+                        📞 Contact
+                    </div>
+
+                </div>
+
+            </div>
+
+            <br>
+
+            <button
+                class="primary"
+                onclick="
+                    closeDemo();
+                    openEnquiry('Website Development')
+                ">
+
+                🚀 Create My Website
+
+            </button>
+
+        `;
+
+    }
+
+
+    if(type === "custom"){
+
+        title.innerHTML =
+            "⚙️ JANOVA Custom Software";
+
+        content.innerHTML = `
+
+            <div style="
+                text-align:center;
+                padding:45px;
+            ">
+
+                <div style="
+                    font-size:70px;
+                    margin-bottom:20px;
+                ">
+                    ⚙️
+                </div>
+
+                <h2>
+                    Your Idea → Our Software
+                </h2>
+
+                <p style="
+                    color:#8588a4;
+                    max-width:600px;
+                    margin:20px auto;
+                    line-height:1.8;
+                ">
+
+                    Tell us your business requirement.
+                    JANOVA TECHNOLOGY can design
+                    and develop a custom software
+                    solution around your workflow.
+
+                </p>
+
+                <button
+                    class="primary"
+                    onclick="
+                        closeDemo();
+                        openEnquiry('Custom Software')
+                    ">
+
+                    🚀 Discuss My Project
+
+                </button>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+function closeDemo(){
+
+    document
+        .getElementById("demoModal")
+        .classList.remove("active");
+
+}
+
+
+/* ================= FORM ================= */
+
+document
+.getElementById("enquiryForm")
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    document
+        .getElementById("successMessage")
+        .style.display="block";
+
+});
+
+
+/* ================= 3D CARD ================= */
+
+document
+.querySelectorAll(".service")
+.forEach(card=>{
+
+    card.addEventListener(
+        "mousemove",
+        function(e){
+
+            const rect =
+                card.getBoundingClientRect();
+
+            const x =
+                e.clientX - rect.left;
+
+            const y =
+                e.clientY - rect.top;
+
+            const rotateX =
+                (y - rect.height / 2) / 14;
+
+            const rotateY =
+                (rect.width / 2 - x) / 14;
+
+            card.style.transform =
+                `perspective(900px)
+                 rotateX(${rotateX}deg)
+                 rotateY(${rotateY}deg)
+                 translateY(-12px)`;
+
+        }
+    );
+
+    card.addEventListener(
+        "mouseleave",
+        function(){
+
+            card.style.transform="";
+
+        }
+    );
+
+});
+
+
+/* ================= CLOSE OUTSIDE ================= */
+
+document
+.getElementById("loginModal")
+.addEventListener("click",function(e){
+
+    if(e.target === this){
+        closeLogin();
+    }
+
+});
+
+
+document
+.getElementById("demoModal")
+.addEventListener("click",function(e){
+
+    if(e.target === this){
+        closeDemo();
+    }
+
+});
+
+</script>
+
+</body>
+  </html>
